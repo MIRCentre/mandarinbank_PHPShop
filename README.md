@@ -1,2 +1,23 @@
-# mandarinbank_PHPShop
-Payment system for PHPShop(for MandarinBank)
+**protocol** - Протокол по которому пользователи заходят на ваш сайт(http или https)
+
+**domain** - Домен вашего сайта
+
+**port** - Порт вашего сайта, если ваш сайт находится на 80 порте, т.е. в адрессной строке после домена через двоеточие не указано число, то данный параметры указывать не прийдётся!
+
+**protocol://domain:port/** - Может быть как `https://example.com/` так и `https://example.com:80/`
+
+## Установка
+
+1. Распаковываем содержимое репозитория в корень сайта
+2. Переходим по ссылке **protocol://domain:port/install-mandarin.php** Должна появится надпись `delete /install-mandarin.php`
+3. Удаляем файл **/install-mandarin.php** из папки в которую вы распаковывали репозиторий
+4. Авторизуемся в админ панели **protocol://domain:port/phpshop/admpanel/**
+5. Далее `Веб-сайт` > `Страницы` > `Добавить страницу`
+6. Заполняем заголовок, URL ссылка - `/page/result.html`, опции вывода - `вывод в каталоге`
+7. Нажимаем кнопку `создать и редактировать`
+8. В правом верхнем углу нажимаем `Модули ^` > `Управление модулями` > `MandarinBank 1.0 Прием оплат через MandarinBank`, наводим на него появляется шестерёнка, нажимаем на неё > `Включить`
+9. Нажимаем на `Модули ^` > `Приём оплат через MandarinBank`
+Вводим Merchant ID, Merchant Secret, описание оплаты и нажимаем `Сохранить`
+10. В системе MandarinPay указываем
+- callbackURL - **protocol://domain:port/payment-mandarin.php**
+- returnURL - **protocol://domain:port/page/result.html**
